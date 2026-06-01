@@ -1,0 +1,24 @@
+{
+  "name": "@clinica-workspace/api-clinica-e2e",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "implicitDependencies": [
+    "@clinica-workspace/api-clinica"
+  ],
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nx/jest:jest",
+      "outputs": [
+        "{workspaceRoot}/coverage/{e2eProjectRoot}"
+      ],
+      "options": {
+        "jestConfig": "api-clinica-e2e/jest.config.cts",
+        "passWithNoTests": true
+      },
+      "dependsOn": [
+        "@clinica-workspace/api-clinica:build",
+        "@clinica-workspace/api-clinica:serve"
+      ]
+    }
+  }
+}
